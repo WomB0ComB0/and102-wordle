@@ -7,11 +7,11 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.github.jinatonic.confetti.CommonConfetti
 
 class MainActivity : AppCompatActivity() {
     private var wordToGuess = FourLetterWordList.getRandomFourLetterWord()
     private var remainingAttempts = 3
+    private var guessNumber = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,30 +20,31 @@ class MainActivity : AppCompatActivity() {
         val guessEditText: EditText = findViewById(R.id.WordInput)
         val submitButton: Button = findViewById(R.id.button)
         val textView: TextView = findViewById(R.id.textView)
-        val guessCount: TextView  = findViewById(R.id.GuessCount)
+        val guessCount: TextView = findViewById(R.id.GuessCount)
         val guessWord_AndCorrectness: TextView = findViewById(R.id.GuessedWord_and_Correctness)
+        val correctness: TextView = findViewById(R.id.Correctness)
+        val guessCountCheck: TextView = findViewById(R.id.GuessCountCheck)
 
         println(wordToGuess)
         textView.visibility = View.GONE
+        correctness.visibility = View.GONE
+        guessCountCheck.visibility = View.GONE
         submitButton.setOnClickListener {
             val guess = guessEditText.text.toString().uppercase()
-            var guessNumber = 0
-            guessCount.append("Guess $guessNumber: $guess")
-            guessWord_AndCorrectness.text = guessCount.toString()
 
-            val correctness = checkGuess(guess)
-            val correctnessText = "Guess $guessNumber Check: $correctness"
-            guessWord_AndCorrectness.append("\n$correctnessText")
-
+            guessCount.text = "Guess #${guessNumber + 1}"
+            guessWord_AndCorrectness.text = guess
+//            guess
+            val correctnessText = checkGuess(guess)
+            guessCountCheck.visibility = View.VISIBLE
+            guessCountCheck.text = "Guess #${guessNumber + 1} Check"
+            correctness.visibility = View.VISIBLE
+            correctness.text = correctnessText
             remainingAttempts--
             guessNumber++
 
             if (guess == wordToGuess) {
                 Toast.makeText(this, "Congratulations! You guessed the word!", Toast.LENGTH_SHORT).show()
-                CommonConfetti.rainingConfetti(
-                    findViewById(R.id.ConfettiContainer),
-                    intArrayOf(android.R.color.black)
-                ).infinite()
                 submitButton.isEnabled = false
             } else if (remainingAttempts == 0) {
                 textView.visibility = View.VISIBLE // Show the textView when attempts are 0
@@ -70,5 +71,3 @@ class MainActivity : AppCompatActivity() {
         return result
     }
 }
-
-
