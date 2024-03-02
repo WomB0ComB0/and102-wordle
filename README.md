@@ -32,16 +32,18 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src="./.github/web103-gradle.gif
-" alt="Video Walkthrough"/>
+<img
+    src="https://imgur.com/a/ExaAIAv.gif
+"   title="Video Walkthrough"
+    alt="Video Walkthrough"
+/>
 
-<!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  
 [ScreenToGif](https://www.screentogif.com/) for Windows
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Describe any c hallenges encountered while building the app.
 
 ## License
 
