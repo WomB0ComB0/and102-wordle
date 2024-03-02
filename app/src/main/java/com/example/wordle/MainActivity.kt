@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         val submitButton: Button = findViewById(R.id.button)
         val textView: TextView = findViewById(R.id.textView)
         val guessCount: TextView = findViewById(R.id.GuessCount)
-        val guessWord_AndCorrectness: TextView = findViewById(R.id.GuessedWord_and_Correctness)
+        val GuessWordAndCorrectness: TextView = findViewById(R.id.GuessedWord_and_Correctness)
         val correctness: TextView = findViewById(R.id.Correctness)
         val guessCountCheck: TextView = findViewById(R.id.GuessCountCheck)
 
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             val guess = guessEditText.text.toString().uppercase()
 
             guessCount.text = "Guess #${guessNumber + 1}"
-            guessWord_AndCorrectness.text = guess
+            GuessWordAndCorrectness.text = guess
 //            guess
             val correctnessText = checkGuess(guess)
             guessCountCheck.visibility = View.VISIBLE
@@ -60,12 +60,12 @@ class MainActivity : AppCompatActivity() {
     private fun checkGuess(guess: String): String {
         var result = ""
         for (i in 0..3) {
-            if (guess[i] == wordToGuess[i]) {
-                result += "O"
+            result += if (guess[i] == wordToGuess[i]) {
+                "O"
             } else if (guess[i] in wordToGuess) {
-                result += "+"
+                "+"
             } else {
-                result += "X"
+                "X"
             }
         }
         return result
