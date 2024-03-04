@@ -50,7 +50,7 @@
         android:layout_width="140dp"
         android:layout_height="45dp"
         android:layout_marginEnd="28dp"
-        android:textAlignment="center"
+        android:textAlignment="textEnd"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,7 +61,7 @@
         android:id="@+id/GuessCountCheck"
         android:layout_width="188dp"
         android:layout_height="46dp"
-        android:textAlignment="center"
+        android:textAlignment="textStart"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toStartOf="@+id/GuessedWord_and_Correctness"
@@ -75,7 +75,7 @@
         android:layout_width="140dp"
         android:layout_height="45dp"
         android:layout_marginEnd="28dp"
-        android:textAlignment="center"
+        android:textAlignment="textEnd"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,7 +86,7 @@
         android:id="@+id/GuessCount"
         android:layout_width="188dp"
         android:layout_height="46dp"
-        android:textAlignment="center"
+        android:textAlignment="textStart"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toStartOf="@+id/GuessedWord_and_Correctness"
@@ -94,6 +94,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.763" />
+
+    <TextView
+        android:id="@+id/Title"
+        android:layout_width="360dp"
+        android:layout_height="78dp"
+        android:text="Please input a 4 letter word, after that, good luck :D !  Note: you only have 4 chances :/"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="22dp"
+        tools:layout_editor_absoluteY="313dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
